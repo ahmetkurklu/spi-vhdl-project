@@ -1,0 +1,8 @@
+
+State Machine - |SPI|state
+Name state.Write state.Read state.WaitWrite state.WaitRead state.Repos 
+state.Repos 0 0 0 0 0 
+state.WaitRead 0 0 0 1 1 
+state.WaitWrite 0 0 1 0 1 
+state.Read 0 1 0 0 1 
+state.Write 1 0 0 0 1 

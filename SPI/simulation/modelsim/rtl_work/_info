@@ -1,0 +1,91 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Cours/Polytech_GE4a_SEM2/ESN7/SPI/simulation/modelsim
+Espi
+Z1 w1647788629
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z4 8D:/Cours/Polytech_GE4a_SEM2/ESN7/SPI/SPI.vhd
+Z5 FD:/Cours/Polytech_GE4a_SEM2/ESN7/SPI/SPI.vhd
+l0
+L4
+V:TOz]QLNc:l2_oUGeX@H01
+!s100 =TS2K4eeY@1GL3QB9n^bM0
+Z6 OV;C;10.5b;63
+31
+Z7 !s110 1647788661
+!i10b 1
+Z8 !s108 1647788660.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|D:/Cours/Polytech_GE4a_SEM2/ESN7/SPI/SPI.vhd|
+Z10 !s107 D:/Cours/Polytech_GE4a_SEM2/ESN7/SPI/SPI.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Aseq
+R2
+R3
+Z13 DEx4 work 3 spi 0 22 :TOz]QLNc:l2_oUGeX@H01
+l33
+L17
+VmfmBM?o1d@L8Xoe=EJBbb1
+!s100 @ChHT?5mb=VR@fZ[K[9h83
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Etb
+Z14 w1647104810
+Z15 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R2
+R3
+R0
+Z16 8D:/Cours/Polytech_GE4a_SEM2/ESN7/SPI/tb.vhd
+Z17 FD:/Cours/Polytech_GE4a_SEM2/ESN7/SPI/tb.vhd
+l0
+L5
+V^B1mg5^Wkj?:A4W84;d3i2
+!s100 OdjobJ9VlHamQ6H3Wa_X^3
+R6
+31
+R7
+!i10b 1
+Z18 !s108 1647788661.000000
+Z19 !s90 -reportprogress|300|-93|-work|work|D:/Cours/Polytech_GE4a_SEM2/ESN7/SPI/tb.vhd|
+Z20 !s107 D:/Cours/Polytech_GE4a_SEM2/ESN7/SPI/tb.vhd|
+!i113 1
+R11
+R12
+Aseq
+R13
+R15
+R2
+R3
+DEx4 work 2 tb 0 22 ^B1mg5^Wkj?:A4W84;d3i2
+l21
+L8
+VWd7LJbH]SJRN19UA^cW0_3
+!s100 KECDOYcR8>fFbj@Qn7RC71
+R6
+31
+R7
+!i10b 1
+R18
+R19
+R20
+!i113 1
+R11
+R12

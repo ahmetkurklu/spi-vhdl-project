@@ -1,0 +1,99 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity periph is
+  port (clk: in std_logic;
+        clr: in std_logic;
+        s_read: in std_logic;
+        s_write: in std_logic;
+        data_in: in std_logic_vector(7 downto 0);
+        data_out: out std_logic_vector(7 downto 0);
+        ready : out std_logic;
+        MOSI : out std_logic;
+        MISO : in std_logic;
+        SCK: out std_logic);
+end entity;
+
+architecture seq of SPI is
+
+    function f_reg_dec (x: std_logic_vector; dec : std_logic) return std_logic_vector is
+		begin
+			return x(6 downto 0) & dec;
+	end;
+
+
+
+    type t_state is (Repos, Lecture, Ecriture);
+    signal state : t_state;
+    
+    begin
+      process (clr, clk)
+      variable cpt : integer range 0 to 8 := 0;
+      variable cpt_sck : integer range 0 to 20 := 0;
+      variable shift_register : std_logic_vector (7 downto 0);
+      variable tmp : std_logic_vector(7 downto 0) := data_in;
+      variable sortie : std_logic; --MAJ de SCK
+      begin
+        if clr='1' then
+            state <= Repos; rdy <= '1'; cpt := 0; cpt_sck := 0; sortie := '0';
+        elsif rising_edge(clk) then
+            case state is
+                when Repos =>
+                    rdy <= '1';
+                    MOSI <= '0'; SCK <= '0'; --les lignes MOSI et SCK sont Ã  l'Ã©tat bas
+                    sortie := '0';
+                    cpt := 0; cpt_sck := 0;
+                    if rd = '1' then 
+                        rdy <= '0'; 
+                        state <= Lecture;
+                        --sortie := '1';
+                    elsif wr = '1' then
+                        rdy <= '0';
+                        state <= Ecriture;
+                        shift_register := data_in;
+                    end if;
+                when Lecture =>
+                    if cpt < 8 then
+                        if cpt_sck < 19 then
+                            cpt_sck := cpt_sck + 1;
+                            if cpt_sck = 10 then
+                                sortie := not(sortie);
+                            end if;
+                        else
+                            cpt_sck := 0;
+                            sortie := not(sortie);
+                            cpt := cpt + 1;
+                            shift_register := f_reg_dec(shift_register,MISO);
+                        end if;
+                    else
+                        rdy <= '1';
+                        tmp := shift_register;
+                        data_out <= tmp;
+                        state <= Repos;
+                        sortie := '0';
+                    end if;
+                when Ecriture => 
+                    if cpt < 8 then
+                       if cpt_sck < 19 then
+                            cpt_sck := cpt_sck + 1;
+                            if cpt_sck = 10 then
+                                sortie := not(sortie);
+                                MOSI <= shift_register(7);
+                            end if;
+                        else
+                            cpt_sck := 0;
+                            sortie := not(sortie);
+                            cpt := cpt + 1;
+                            shift_register := f_reg_dec(shift_register,MISO);
+                        end if;
+                    else
+                        state <= Repos;
+                        rdy <= '1';
+                        sortie := '0';
+                        MOSI <= '0';
+                    end if;
+            end case;
+        end if;
+      SCK <= sortie;
+      end process;
+    end architecture;

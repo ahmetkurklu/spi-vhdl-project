@@ -1,0 +1,16 @@
+Quartus Prime Archive log --	D:/Cours/Polytech_GE4a_SEM2/ESN7/SPI/SPI.qarlog
+
+Archive:	D:/Cours/Polytech_GE4a_SEM2/ESN7/SPI/SPI.qar
+Date:		Mon Mar 21 16:47:38 2022
+Quartus Prime		18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+	=========== Files Selected: ===========
+D:/Cours/Polytech_GE4a_SEM2/ESN7/SPI/SPI.qpf
+D:/Cours/Polytech_GE4a_SEM2/ESN7/SPI/SPI.qsf
+D:/Cours/Polytech_GE4a_SEM2/ESN7/SPI/SPI.vhd
+D:/Cours/Polytech_GE4a_SEM2/ESN7/SPI/tb.vhd
+c:/intelfpga_lite/18.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 5 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
